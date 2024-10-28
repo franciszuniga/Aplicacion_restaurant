@@ -82,6 +82,14 @@
     @stack('other-scripts')
     <script src="{{ asset('js/app.js') }}"></script>
     <script>
+        let forms = document.querySelectorAll(".mi-formulario");
+        forms.forEach(function(form) {
+            form.addEventListener("submit", function(event) {
+                event.preventDefault();
+                //alert("Formulario enviado");
+            });
+        });
+
         let productsSelected = [];
         let productFinalSelected = [];
 
@@ -115,7 +123,7 @@
                                 tr.innerHTML = `
                                 <td>${item.codigo}</td>
                                 <td>${item.nombre}</td>
-                                <td>Descripcion arroz chaufa</td>
+                                <td>${item.descripcion}</td>
                                 <td>
                                     <input type="hidden" name="detalle_${item.codigo}" value="${item.id}">
                                     <input onchange="calculateSubTotal(event);" name=${item.codigo} id=${name} type="text" class="form-control" value=${item.stock}>
@@ -156,27 +164,25 @@
             let existingError = false;
             let quantity = Number(value);
             let subTotal = 0;
-            productFinalSelected.forEach(item => {
-                if (Number(value) > Number(item.stock)) {
+            let selectedItem = productFinalSelected.find(item => item.codigo === codigo);
+            if (selectedItem) {
+                if (Number(value) > Number(selectedItem.stock)) {
                     handleMessage('error', 'Oops...', 'La cantidad ingresada supera al stock!')
                     existingError = true;
-                    e.target.value = item.stock;
+                    e.target.value = selectedItem.stock;
                     return;
                 }
 
                 if (Number(value) <= 0) {
                     handleMessage('error', 'Oops...', 'No puede ingresar un numero negativo!')
                     existingError = true;
-                    e.target.value = item.stock;
+                    e.target.value = selectedItem.stock;
                     return;
                 }
 
-                if (item.codigo === codigo) {
-                    subTotal = item.precio * quantity;
-                    item.subTotal = subTotal;
-                    return;
-                }
-            })
+                subTotal = selectedItem.precio * quantity;
+                selectedItem.subTotal = subTotal;
+            }
             if (!existingError) {
                 document.querySelector("." + codigo).innerHTML = subTotal;
 
@@ -213,16 +219,21 @@
         }
 
         function handleSave(e){
-            const name = e.target.name;
-            let trs = document.querySelectorAll(`#databody${name} tr`);
-            //const tablebody = document.querySelector("#databody"+name);
-            trs.forEach(iten => {
-                iten.remove();
-            })
-            productFinalSelected.foreach(item => {
+            // const name = e.target.name;
+            // let trs = document.querySelectorAll(`#databody${name} tr`);
+            // //const tablebody = document.querySelector("#databody"+name);
+            // trs.forEach(iten => {
+            //     iten.remove();
+            // })
+            // productFinalSelected.foreach(item => {
 
-            })
-            document.querySelector("#total"+name)
+            // })
+            // document.querySelector("#total"+name)
+
+            let forms = document.querySelectorAll(".mi-formulario");
+            forms.forEach(form => {
+                form.submit();
+            });
             
         }
     </script>

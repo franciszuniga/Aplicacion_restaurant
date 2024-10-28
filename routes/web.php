@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\MesaController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\PedidoController;
@@ -22,6 +23,37 @@ use App\Http\Controllers\ClienteController;
 Route::get('/', function () {
     return view('auth.login');
 });
+
+Route::get('/nombre',function (){
+    $nombre = config('configuracion.nombre');
+    return $nombre;
+});
+
+Route::get('/parametro1',function (){
+    $nombreparcial = config('parcialconfiguracion.nombre_de_sistema');
+    return $nombreparcial;
+});
+
+Route::get('/parametro2',function (){
+    $nombreparcial = config('parcialconfiguracion.version');
+    return $nombreparcial;
+});
+
+Route::get('/parametro3',function (){
+    $nombreparcial = config('parcialconfiguracion.moneda');
+    return $nombreparcial;
+});
+
+Route::get('/parametro4',function (){
+    $nombreparcial = config('parcialconfiguracion.idioma');
+    return $nombreparcial;
+});
+
+Route::get('/parametro5',function (){
+    $nombreparcial = config('parcialconfiguracion.base_de_datos');
+    return $nombreparcial;
+});
+
 
 Auth::routes();
 

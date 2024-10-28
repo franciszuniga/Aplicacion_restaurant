@@ -1,0 +1,16 @@
+{
+    "nombre_de_sistema": "appweb_restaurant",
+    "version": "1.0",
+    "moneda": "soles",
+    "idioma": "español",
+    "base_de_datos": "lafortaleza",
+    "host": "127.0.0.1",
+    "puerto": "3306",
+    "usuario": "root",
+    "contraseña": null,
+    "impuesto": "0.18",
+    "descuento": "0.10" ,
+    "correo": "micorreo@gmail.com",
+    "telefono": "909090909"
+
+}

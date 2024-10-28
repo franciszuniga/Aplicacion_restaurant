@@ -44,7 +44,7 @@
                                             <h5 class="modal-title text-uppercase" id="exampleModalLabel">
                                                 {{ $mesa->numero }}</h5>
                                         </div>
-                                        <form action="{{ route('pedidos.store') }}" method="POST">
+                                        <form class="mi-formulario" action="{{ route('pedidos.store') }}" method="POST">
                                             @csrf
                                             <div class="modal-body">
                                                 <div>
@@ -114,7 +114,7 @@
                                                 <button type="button" name="{{ $mesa->id }}" onclick="handleClose(event);" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Cerrar</button>
                                                 <!-- <button type="button" class="btn btn-primary" onclick="handleSave(event);">Guardar</button> -->
-                                                <button type="submit" class="btn btn-primary">Guardar</button>
+                                                <button type="submit" onclick="handleSave(event);" class="btn btn-primary">Guardar</button>
                                             </div>
                                         </form>
                                     </div>
