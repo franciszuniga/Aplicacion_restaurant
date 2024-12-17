@@ -17,7 +17,7 @@ class ReservaController extends Controller
      */
     public function index()
     {
-        
+        //método para mostrar todas las reservas
     }
 
     /**
@@ -27,7 +27,7 @@ class ReservaController extends Controller
      */
     public function create()
     {
-        //
+        //método para crear una reserva
     }
 
     /**
@@ -54,7 +54,8 @@ class ReservaController extends Controller
 
         $lista_productos = Producto::where('stock', '>', 0)->get();
         $listado_mesas = Mesa::all();
-        return view("admin.platos.index", compact('listado_mesas', 'lista_productos')); //la funcion compact esta pasando datos de las variables lista_productos y listado_mesas a la vista
+        return view("admin.platos.index", compact('listado_mesas', 'lista_productos')); 
+        //la funcion compact esta pasando datos de las variables lista_productos y listado_mesas a la vista
         // guardar reserva en la tabla pedidos
     }
 
@@ -78,7 +79,7 @@ class ReservaController extends Controller
      */
     public function edit(Reserva $reserva)
     {
-        
+        //método para editar una reserva
     }
 
     /**
@@ -90,7 +91,7 @@ class ReservaController extends Controller
      */
     public function update(Request $request, Reserva $reserva)
     {
-        //
+        //método para actualizar una reserva
     }
 
     /**
@@ -101,11 +102,11 @@ class ReservaController extends Controller
      */
     public function destroy(Reserva $reserva)
     {
-        //
+        //método para eliminar una reserva
     }
 
     public function searchProduct($codigo)
     {
-        
+        //método para buscar un producto por su codigo
     }
 }

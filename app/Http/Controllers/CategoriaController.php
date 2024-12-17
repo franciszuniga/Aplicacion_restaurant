@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Dashboard;
-use App\Models\Producto;
+use App\Models\Categoria;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class DashboardController extends Controller
+class CategoriaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,16 +14,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $year = ['2017','2018','2019','2020', '2021', '2022'];
-
-        $product = [];
-        foreach ($year as $key => $value) {
-            $product[] = Producto::where(DB::raw("DATE_FORMAT(created_at, '%Y')"),$value)->count();
-        }
-
-    	return view('admin.desktop')
-            ->with('year',json_encode($year,JSON_NUMERIC_CHECK))
-            ->with('product',json_encode($product,JSON_NUMERIC_CHECK));
+        //
     }
 
     /**
@@ -52,10 +41,10 @@ class DashboardController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Dashboard  $dashboard
+     * @param  \App\Models\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function show(Dashboard $dashboard)
+    public function show(Categoria $categoria)
     {
         //
     }
@@ -63,10 +52,10 @@ class DashboardController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Dashboard  $dashboard
+     * @param  \App\Models\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function edit(Dashboard $dashboard)
+    public function edit(Categoria $categoria)
     {
         //
     }
@@ -75,10 +64,10 @@ class DashboardController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Dashboard  $dashboard
+     * @param  \App\Models\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Dashboard $dashboard)
+    public function update(Request $request, Categoria $categoria)
     {
         //
     }
@@ -86,10 +75,10 @@ class DashboardController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Dashboard  $dashboard
+     * @param  \App\Models\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Dashboard $dashboard)
+    public function destroy(Categoria $categoria)
     {
         //
     }

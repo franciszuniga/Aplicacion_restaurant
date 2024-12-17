@@ -21,6 +21,8 @@ class CreateProductoTable extends Migration
             $table->string("descripcion");
             $table->string("precio");
             $table->string("stock");
+            //$table->unsignedBigInteger("categoria_id");
+            //$table->foreign("categoria_id")->references("id")->on("categoria");
         });
     }
 

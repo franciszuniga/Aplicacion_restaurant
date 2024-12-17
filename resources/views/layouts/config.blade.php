@@ -230,10 +230,14 @@
             // })
             // document.querySelector("#total"+name)
 
-            let forms = document.querySelectorAll(".mi-formulario");
-            forms.forEach(form => {
-                form.submit();
-            });
+            // let forms = document.querySelectorAll(".mi-formulario");
+            // forms.forEach(form => {
+            //     form.submit();
+            // });
+
+            let boton = e.target;
+            let formulario = boton.form;
+            formulario.submit();
             
         }
     </script>

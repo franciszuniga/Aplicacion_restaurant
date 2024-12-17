@@ -114,7 +114,7 @@
                                                 <button type="button" name="{{ $mesa->id }}" onclick="handleClose(event);" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Cerrar</button>
                                                 <!-- <button type="button" class="btn btn-primary" onclick="handleSave(event);">Guardar</button> -->
-                                                <button type="submit" onclick="handleSave(event);" class="btn btn-primary">Guardar</button>
+                                                <button type="button" onclick="handleSave(event);" class="btn btn-primary">Guardar</button>
                                             </div>
                                         </form>
                                     </div>

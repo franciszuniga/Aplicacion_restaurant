@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class ClienteController extends Controller
 {
+    const MENSAJE_ERROR = 'Ocurrió un error';
     public function index(){
         $clientes=Cliente::get();
         return view('admin.cliente.index', compact('clientes'));
@@ -20,7 +21,7 @@ class ClienteController extends Controller
             $cliente = Cliente::get();
             return view('admin.cliente.edit', compact('clientes'));
         } catch (\Exception $ex) {
-            return back()->with('warning', 'ocurrio un error');
+            return back()->with('warning', self::MENSAJE_ERROR);
         }
     }
     public function update(Request $request, $id)
@@ -31,7 +32,7 @@ class ClienteController extends Controller
             $cliente->save();
             return redirect()->route('cliente.index')->with('success', 'La persona ha sido actualizado correctamente.');
         } catch (\Exception $ex) {
-            return back()->with('warning', 'ocurrio un error');
+            return back()->with('warning', self::MENSAJE_ERROR);
         }
     }
     public function store(Request $request){
@@ -40,7 +41,7 @@ class ClienteController extends Controller
             $cliente->save();
             return redirect()->route('cliente.index')->with('success', 'El usuario ha sido creado correctamente.');
         } catch (\Exception $ex) {
-            return back()->with('warning', 'ocurrio un error');
+            return back()->with('warning', self::MENSAJE_ERROR);
         }
 
     }

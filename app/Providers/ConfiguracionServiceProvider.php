@@ -30,7 +30,8 @@ class ConfiguracionServiceProvider extends ServiceProvider
         $configuracion = config('configuracion');
         
         // Registrar una vista compartida
-        //Ahora, en cualquier vista de Blade, puedes acceder a esta configuración global utilizando {{ $configuracionGlobal }}.
+        //Ahora, en cualquier vista de Blade, puedes acceder 
+        //a esta configuración global utilizando {{ $configuracionGlobal }}.
         View::share('configuracionGlobal', $configuracion);
     }
 }

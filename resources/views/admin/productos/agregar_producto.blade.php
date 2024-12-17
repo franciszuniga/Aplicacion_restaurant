@@ -18,6 +18,10 @@
     <input type="text" class="form-control" name="stock">
     <label class="small mb-1" for="inputDESCRIPCION">DESCRIPCION</label>
     <input type="text" class="form-control" name="descripcion">
+    <select name="categoria_id" id="categoria_id">
+        <option value="1">BEBIDAS</option>
+        <option value="2">COMIDAS</option>
+    </select>
     
     <button class="btn btn-danger" type="submit">
         GUARDAR
